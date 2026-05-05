@@ -1,0 +1,138 @@
+/* Chess Board Styling */
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 0;
+  border: 3px solid #333;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  background: #8b7355;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.square.light {
+  background-color: #f0d9b5;
+}
+
+.square.dark {
+  background-color: #b58863;
+}
+
+.square.selected {
+  background-color: #baca44 !important;
+}
+
+.square.last-move {
+  background-color: #baca44;
+  opacity: 0.6;
+}
+
+.square.available {
+  background-color: rgba(186, 202, 68, 0.5);
+}
+
+/* Piece styling */
+.piece {
+  cursor: move;
+  user-select: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piece.white {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.piece.black {
+  color: #000000;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.piece:hover {
+  filter: brightness(1.1);
+}
+
+/* Board labels */
+.rank-label {
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.file-label {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Move indicators */
+.move-indicator {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.capture-indicator {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  position: absolute;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(8, 45px);
+    grid-template-rows: repeat(8, 45px);
+  }
+
+  .square {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+
+  .capture-indicator {
+    width: 45px;
+    height: 45px;
+  }
+}
